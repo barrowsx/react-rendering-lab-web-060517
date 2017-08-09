@@ -18,14 +18,19 @@ class Pikachu extends React.Component {
 
   makeBigger = () => {
     this.setState({
-      size: this.state.size + 10
+      size: Math.pow(this.state.size, 2)
     });
   }
 
   makeSmaller = () => {
     this.setState({
-      size: this.state.size - 10
+      size: Math.sqrt(this.state.size, 2)
     });
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log(this.state.size)
+    this.resizePikachu()
   }
 
   render() {
